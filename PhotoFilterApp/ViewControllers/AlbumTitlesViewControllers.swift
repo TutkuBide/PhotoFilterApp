@@ -21,8 +21,6 @@ class AlbumTitlesViewControllers: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         PHPhotoLibrary.requestAuthorization { (status) in
             switch status {
             case .notDetermined:
@@ -44,15 +42,11 @@ class AlbumTitlesViewControllers: UIViewController {
         setupCollectionViews()
     }
     
-    
-    
     func cornerRadius() {
         galleryCollectionView.layer.cornerRadius = 20
+        galleryCollectionView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         cornerView.layer.cornerRadius = 20
         galleryView.layer.cornerRadius = 20
-       
-        
-        
     }
     
     func setupCollectionViews() {
@@ -61,7 +55,6 @@ class AlbumTitlesViewControllers: UIViewController {
         albumTitleCollectionView.register(UINib(nibName: "albumTitleCell", bundle: nil), forCellWithReuseIdentifier: "albumTCell")
         galleryCollectionView.register(UINib(nibName: "galleryCell", bundle: nil), forCellWithReuseIdentifier: "photoGalleryCell")
     }
-    
     
     func makeAlert() {
         let alert = UIAlertController(title: "Galeriye ulaşmak için izin gerekiyor.", message: "Ayarlara Git", preferredStyle: UIAlertController.Style.alert)
@@ -72,7 +65,6 @@ class AlbumTitlesViewControllers: UIViewController {
             if UIApplication.shared.canOpenURL(settingsUrl) {
                 UIApplication.shared.open(settingsUrl, completionHandler: {(success)in
                     print("Ayarlar açıldı: \(success)")
-                    
                 })
             }
         }
@@ -85,12 +77,10 @@ class AlbumTitlesViewControllers: UIViewController {
         PhotoAlbumManager.shared.getPhotos(with: PhotoAlbumManager.shared.titleArray[0])
         self.albumTitleCollectionView.reloadData()
         self.galleryCollectionView.reloadData()
-        
     }
 }
 
 extension AlbumTitlesViewControllers: UICollectionViewDelegate, UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == galleryCollectionView {
             return PhotoAlbumManager.shared.imageArray.count
@@ -99,10 +89,8 @@ extension AlbumTitlesViewControllers: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let galleryCell = galleryCollectionView.dequeueReusableCell(withReuseIdentifier: "photoGalleryCell", for: indexPath) as! galleryCell
         galleryCell.imageView.image = PhotoAlbumManager.shared.imageArray[indexPath.row]
-        
         if (collectionView == albumTitleCollectionView) {
             let albumCell = albumTitleCollectionView.dequeueReusableCell(withReuseIdentifier: "albumTCell", for: indexPath) as! albumTitleCell
             albumCell.titleLabel.text = PhotoAlbumManager.shared.titleArray[indexPath.row]
@@ -115,19 +103,16 @@ extension AlbumTitlesViewControllers: UICollectionViewDelegate, UICollectionView
             return albumCell
         }
         return galleryCell
-        
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if collectionView == albumTitleCollectionView  {
-            
             if self.selectedIndex?.row ?? -1 >= 0 {
                 if let cell = albumTitleCollectionView.cellForItem(at: self.selectedIndex!) as? albumTitleCell {
                     cell.lineView.isHidden = true
                     cell.titleLabel.textColor = .lightGray
                 }
             }
-            
             if let cell = albumTitleCollectionView.cellForItem(at: indexPath) as? albumTitleCell {
                 cell.lineView.isHidden = false
                 cell.titleLabel.textColor = .white
@@ -135,21 +120,13 @@ extension AlbumTitlesViewControllers: UICollectionViewDelegate, UICollectionView
             }
             PhotoAlbumManager.shared.getPhotos(with: PhotoAlbumManager.shared.titleArray[indexPath.row])
             self.galleryCollectionView.reloadData()
-            
         }
         
         if collectionView == galleryCollectionView {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let imageCustomVC = storyboard.instantiateViewController(withIdentifier: "filterVC") as! filterViewControllers
+            let imageCustomVC = storyboard.instantiateViewController(withIdentifier: "filterVC") as! FilterViewController
             imageCustomVC.originalImage = PhotoAlbumManager.shared.imageArray[indexPath.row]
             self.navigationController?.pushViewController(imageCustomVC, animated: true)
         }
     }
-    
 }
-
-
-
-
-
-

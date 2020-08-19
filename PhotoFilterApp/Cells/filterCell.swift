@@ -15,7 +15,7 @@ class filterCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+      
         imageView.layer.cornerRadius = 20
         
     }

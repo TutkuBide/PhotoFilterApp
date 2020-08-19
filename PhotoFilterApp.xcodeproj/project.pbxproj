@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8598056D23DB07FA00FD951B /* filterViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8598056C23DB07FA00FD951B /* filterViewControllers.swift */; };
+		8598056D23DB07FA00FD951B /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8598056C23DB07FA00FD951B /* FilterViewController.swift */; };
 		8598057223DB083300FD951B /* filterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8598057023DB083300FD951B /* filterCell.swift */; };
 		8598057323DB083300FD951B /* filterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8598057123DB083300FD951B /* filterCell.xib */; };
 		8598057523DB0A1400FD951B /* filterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8598057423DB0A1400FD951B /* filterModel.swift */; };
@@ -26,7 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8598056C23DB07FA00FD951B /* filterViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterViewControllers.swift; sourceTree = "<group>"; };
+		8598056C23DB07FA00FD951B /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		8598057023DB083300FD951B /* filterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterCell.swift; sourceTree = "<group>"; };
 		8598057123DB083300FD951B /* filterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = filterCell.xib; sourceTree = "<group>"; };
 		8598057423DB0A1400FD951B /* filterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterModel.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				85A286EB23D4F5ED00132071 /* AlbumTitlesViewControllers.swift */,
-				8598056C23DB07FA00FD951B /* filterViewControllers.swift */,
+				8598056C23DB07FA00FD951B /* FilterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -215,7 +215,7 @@
 				8598057523DB0A1400FD951B /* filterModel.swift in Sources */,
 				8598057223DB083300FD951B /* filterCell.swift in Sources */,
 				85A2870423D4FD5800132071 /* AlbumManager.swift in Sources */,
-				8598056D23DB07FA00FD951B /* filterViewControllers.swift in Sources */,
+				8598056D23DB07FA00FD951B /* FilterViewController.swift in Sources */,
 				85A286EC23D4F5ED00132071 /* AlbumTitlesViewControllers.swift in Sources */,
 				8598057723DB0A6200FD951B /* filterVariables.swift in Sources */,
 				85A286E823D4F5ED00132071 /* AppDelegate.swift in Sources */,

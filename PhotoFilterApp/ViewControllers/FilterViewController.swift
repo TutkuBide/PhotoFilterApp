@@ -8,7 +8,7 @@
 
 import UIKit
 
-class filterViewControllers: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class FilterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var backButon: UIButton!
     @IBOutlet weak var buttonView: UIView!
@@ -24,7 +24,8 @@ class filterViewControllers: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        buttonView.layer.cornerRadius = 15
+        buttonView.layer.cornerRadius = 8
+          buttonView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         filterCollectionView.register(UINib(nibName: "filterCell", bundle: nil), forCellWithReuseIdentifier: "filterCell")
         setupCV()
         customizeImageView.image = originalImage
